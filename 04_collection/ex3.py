@@ -5,33 +5,33 @@
 #  튜플의 특징
 #  1. ( immutable, 변경 불가능 ) -> 리스트와의 차이점
 #  2. ( iterable, 반복 가능 )
-#  3. ( sequence, 인덱싱과 슬라이싱이 가능 )
+#  3. ( sequence, 인덱싱과 슬라이싱 )
 #  4. ( 중복 가능 )
 # ===========================================================
 
 # 튜플 생성
 a = ()
-b = tuple()
-print(type(a), type(b))
+b = tuple() # 생성자(constructor) 사용
+print(type(a), type(b)) # <class 'tuple'>
 
-t = (1, 3.14, True, "Python")
-print(t)
-
-t = 1, 3.14, True, "Python"
+t = (1, 3.14, True, "Hello, World!")
+t = 1, 3.14, True, "Hello, World!" # () 생략 가능!
 print(t)
 
 a = 1
 b = 1,
-print(type(a), type(b))
+print(b)
+print(type(a), type(b)) # <class 'int'> <class 'tuple'>
+
 # ===========================================================
 # 1. 튜플은 immutable하다. (변경 불가능)
 # ===========================================================
 
-# t[0] = 100        # __setitem__
+# t[0] = 100 # tuple 자료형은 __setitem__ 이 없음!
 
 t = (1, [2, 3])
 t[1].append(4)
-print(t)
+print(t) # tuple 안에 있는 list는 가능; 주솟값이 들어가 있어서?
 
 # ===========================================================
 # 2. 튜플은 iterable하다. (반복 가능)
@@ -43,8 +43,9 @@ t = (10, 20, 30, 40)
 for data in t:
     print(data)
 
-for i, data in enumerate(t):
+for i, date in enumerate(t):
     print(i, data)
+
 
 
 # ===========================================================
@@ -57,7 +58,7 @@ print(t[-1])                        # 마지막 요소 출력
 
 # 슬라이싱
 print(t[:2])                        # 앞에서 2개 출력
-print(t[1:4])                       # 중간 2개 출력
+print(t[1:3])                       # 중간 2개 출력
 print(t[::-1])                      # 거꾸로 출력
 
 
@@ -65,7 +66,8 @@ print(t[::-1])                      # 거꾸로 출력
 # 4. 튜플은 중복을 허용한다. (같은 값을 여러번 담을 수 있음)
 # ===========================================================
 
-
+t = (10, 10, 10)
+print(t)
 
 
 # ===========================================================
@@ -74,17 +76,15 @@ print(t[::-1])                      # 거꾸로 출력
 
 a = (3, 4, 1, 5, 2)
 
-print(len(a))
-print(sum(a))
-print(max(a))
-print(min(a))
-b = sorted(a)
-print(b)
-print(sorted(a, reverse=True))
+print(len(a)) # 5
+print(sum(a)) # 15
+print(max(a)) # 5
+print(min(a)) # 1
+print(sorted(a)) # sorted는 리턴이 리스트로 고정!
+print(sorted(a, reverse=True)) # reverse 옵션 True
 
 # 튜플 합치기
-print(a + (10, 20))
-
+print(a + (10, 20)) # 두 튜플을 더한 새로운 튜플 생성
 
 # 튜플은 원본 불가이므로, 원본을 바꾸는 extend, append 메소드가 없음
 
@@ -92,5 +92,5 @@ print(a + (10, 20))
 print(a * 2)
 
 # 멤버십 연산자
-print(1 in a)
-print(10 in a)
+print(1 in a) # True
+print(10 in a) # False
