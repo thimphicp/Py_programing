@@ -83,6 +83,7 @@ print(sum(a), sum(b)) # 55, 0; b는 소진되어 0이 나옴
 result = tuple(i ** 2 for i in range(1, 11)) # tuple 생성자 안에는 하나의 값만 들어감 --> generator의 소괄호 생략 가능!
 print(result)
 
+
 # tuple의 생성자에 generator를 넘겨 값을 순회하면서 튜플을 만듦
 
 
